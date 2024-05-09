@@ -230,36 +230,35 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-	/*Pair* nextTreeMap(TreeMap* tree) retornar el siguiente Pair del mapa a partir del puntero TreeNode* current. Recuerde actualizar este puntero.*/
-	
 	if (tree == NULL || tree->root == NULL) return NULL;
 
-  tree->current = tree->root;
-	//Si hay subarbol derecho
-	if (tree->current->right != NULL){
-		tree->current = tree->current->right;
-		
-		while(tree->current->left != NULL){
-				tree->current = tree->current->left;
-		}
-		return tree->current->pair;
+	if (tree->current == NULL) {
+			// Si current es NULL, significa que es la primera llamada a nextTreeMap
+			// Buscamos el nodo más izquierdo para comenzar el recorrido
+			tree->current = tree->root;
+			while (tree->current->left != NULL) {
+					tree->current = tree->current->left;
+			}
+			return tree->current->pair;
 	} else {
-		// si no hay subarbol derecho
-		TreeNode* aux = tree->current;
-		while(aux->parent != NULL && aux->parent->right == aux){
-			aux = aux->parent;
-		}
-
-		if (aux->parent != NULL){
-			//aux = aux->parent;
-			tree->current = aux->parent;
-			return aux->parent->pair;
-		} else {
-			tree->current = NULL; //no olvidar actualuzar el puntero
-			return NULL;
-		}
+			// Si current no es NULL, buscamos el siguiente nodo en el recorrido in-order
+			if (tree->current->right != NULL) {
+					// Si tiene un subárbol derecho, buscamos el nodo más izquierdo de ese subárbol
+					tree->current = tree->current->right;
+					while (tree->current->left != NULL) {
+							tree->current = tree->current->left;
+					}
+					return tree->current->pair;
+			} else {
+					// Si no tiene subárbol derecho, retrocedemos en el árbol hasta encontrar el primer padre por el que no hemos pasado
+					TreeNode* parent = tree->current->parent;
+					while (parent != NULL && tree->current == parent->right) {
+							tree->current = parent;
+							parent = parent->parent;
+					}
+					tree->current = parent; // Actualizamos el puntero current
+					return parent != NULL ? parent->pair : NULL;
+			}
 	}
-	
-	return NULL;
 	
 }
