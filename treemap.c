@@ -251,9 +251,9 @@ Pair * nextTreeMap(TreeMap * tree) {
 		}
 
 		if (aux->parent != NULL){
-			
+			aux = aux->parent;
 			tree->current = aux;
-			return aux->pair;
+			return aux->parent->pair;
 		} else {
 			tree->current = NULL; //no olvidar actualuzar el puntero
 			return NULL;
