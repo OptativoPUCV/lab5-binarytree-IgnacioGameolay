@@ -251,7 +251,7 @@ Pair * nextTreeMap(TreeMap * tree) {
 		}
 
 		if (aux->parent != NULL){
-			aux = aux->parent;
+			
 			tree->current = aux;
 			return aux->pair;
 		} else {
