@@ -239,7 +239,7 @@ Pair * nextTreeMap(TreeMap * tree) {
 	//Si hay subarbol derecho
 	if (tree->current->right != NULL){
 		tree->current = tree->current->right;
-
+		printf("edad");
 		while(tree->current->left != NULL){
 				tree->current = tree->current->left;
 		}
