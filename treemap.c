@@ -234,19 +234,26 @@ Pair * nextTreeMap(TreeMap * tree) {
 
 	if (tree == NULL || tree->root == NULL) return NULL;
 
-
+	//Si currenst es null
+	if (tree->current == NULL){
+		tree->current = tree->root;
+		while(tree->current->left != NULL){
+			tree->current = tree->current->left;
+		}
+		return tree->current->pair;
+	}
 	
-	//Si hay subarbol derecho
+	//Si hay subarbosl derecho
 	if (tree->current->right != NULL){
 		tree->current = tree->current->right;
-		printf("edad");
+		///printf("edad");
 		while(tree->current->left != NULL){
 				tree->current = tree->current->left;
 		}
 		return tree->current->pair;
 		
 	} else {
-		// si no hay subarbol derecho
+		//si no hay subarbol derecho
 		TreeNode* aux = tree->current;
 		while(aux->parent != NULL && aux->parent->right == aux){
 			aux = aux->parent;
