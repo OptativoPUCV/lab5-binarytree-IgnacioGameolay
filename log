@@ -294,3 +294,8 @@ treemap.c:134:17: error: ‘nodo’ undeclared (first use in this function); did
 treemap.c:134:17: note: each undeclared identifier is reported only once for each function it appears in
 Compilation failed
 1aecb54
+Thu 09 May 2024 02:04:35 AM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  0|0
+bff6c4a
