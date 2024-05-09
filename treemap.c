@@ -246,7 +246,7 @@ Pair * nextTreeMap(TreeMap * tree) {
 	} else {
 		// si no hay subarbol derecho
 		TreeNode* aux = tree->current;
-		while(aux->parent != NULL && aux->parent->right == tree->aux){
+		while(aux->parent != NULL && aux->parent->right == aux){
 			aux = aux->parent;
 		}
 
