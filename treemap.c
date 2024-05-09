@@ -230,6 +230,8 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
+	/*Pair* nextTreeMap(TreeMap* tree) retornar el siguiente Pair del mapa a partir del puntero TreeNode* current. Recuerde actualizar este puntero.*/
+	
 	if (tree == NULL || tree->root == NULL) return NULL;
 
   tree->current = tree->root;
@@ -244,10 +246,18 @@ Pair * nextTreeMap(TreeMap * tree) {
 	} else {
 		// si no hay subarbol derecho
 		TreeNode* aux = tree->current;
-		while(aux->parent != NULL && aux->parent->right == aux){
+		while(aux->parent != NULL && aux->parent->right == tree->aux){
 			aux = aux->parent;
 		}
-		return aux->parent->pair;
+
+		if (aux->parent != NULL){
+			aux = aux->parent;
+			tree->current = aux;
+			return aux->pair;
+		} else {
+			tree->current = NULL; //no olvidar actualuzar el puntero
+			return NULL;
+		}
 	}
 	
 	return NULL;
