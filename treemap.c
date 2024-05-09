@@ -150,8 +150,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
 		}
 
 		
-		free(aux->pair);
-		free(aux);
+		removeNode(tree, aux);
 	}
 }
 
