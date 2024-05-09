@@ -509,3 +509,30 @@ Thu 09 May 2024 03:04:13 AM UTC:
  tests:  20|2
 total_score: 45/70
 9df2a88
+Thu 09 May 2024 03:05:48 AM UTC: 
+ treemap.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:206:17: error: expected ‘}’ before ‘else’
+  206 |                 else if(tree->lower_than(tree->current->pair->key, key)){
+      |                 ^~~~
+treemap.c:209:19: error: ‘else’ without a previous ‘if’
+  209 |                 } else {
+      |                   ^~~~
+treemap.c:199:19: error: variable ‘aux’ set but not used [-Werror=unused-but-set-variable]
+  199 |         TreeNode* aux = NULL;
+      |                   ^~~
+treemap.c: At top level:
+treemap.c:213:9: error: expected identifier or ‘(’ before ‘if’
+  213 |         if (aux != NULL){
+      |         ^~
+treemap.c:215:11: error: expected identifier or ‘(’ before ‘else’
+  215 |         } else {
+      |           ^~~~
+treemap.c:218:1: error: expected identifier or ‘(’ before ‘}’ token
+  218 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+7bc418e
