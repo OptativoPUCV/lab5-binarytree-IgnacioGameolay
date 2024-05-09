@@ -69,3 +69,62 @@ treemap.c:72:23: error: request for member ‘right’ in something not a struct
 cc1: all warnings being treated as errors
 Compilation failed
 9cbfe10
+Thu 09 May 2024 01:31:29 AM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:49:13: error: implicit declaration of function ‘searhTreeMap’; did you mean ‘searchTreeMap’? [-Werror=implicit-function-declaration]
+   49 |         if (searhTreeMap(tree, key) != NULL) return; //si ya existe no se inserta
+      |             ^~~~~~~~~~~~
+      |             searchTreeMap
+treemap.c:49:37: error: comparison between pointer and integer [-Werror]
+   49 |         if (searhTreeMap(tree, key) != NULL) return; //si ya existe no se inserta
+      |                                     ^~
+treemap.c:52:13: error: ‘aux’ undeclared (first use in this function)
+   52 |         if (aux == NULL) return;
+      |             ^~~
+treemap.c:52:13: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c:54:9: error: unknown type name ‘Treenode’; did you mean ‘TreeNode’?
+   54 |         Treenode* parent = NULL;
+      |         ^~~~~~~~
+      |         TreeNode
+treemap.c:55:9: error: unknown type name ‘Treenode’; did you mean ‘TreeNode’?
+   55 |         Treenode* current = tree->root;
+      |         ^~~~~~~~
+      |         TreeNode
+treemap.c:55:29: error: initialization of ‘int *’ from incompatible pointer type ‘TreeNode *’ [-Werror=incompatible-pointer-types]
+   55 |         Treenode* current = tree->root;
+      |                             ^~~~
+treemap.c:58:50: error: request for member ‘pair’ in something not a structure or union
+   58 |                 if (tree->lower_than(key, current->pair->key)){
+      |                                                  ^~
+treemap.c:59:25: error: ‘curret’ undeclared (first use in this function); did you mean ‘current’?
+   59 |                         curret = current->left;
+      |                         ^~~~~~
+      |                         current
+treemap.c:59:41: error: request for member ‘left’ in something not a structure or union
+   59 |                         curret = current->left;
+      |                                         ^~
+treemap.c:61:42: error: request for member ‘right’ in something not a structure or union
+   61 |                         current = current->right;
+      |                                          ^~
+treemap.c:66:31: error: assignment to ‘TreeNode *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+   66 |         inserted_node->parent = parent;
+      |                               ^
+treemap.c:69:26: error: ‘TreeMap’ has no member named ‘lowet_than’; did you mean ‘lower_than’?
+   69 |         } else if (tree->lowet_than(key, parent->pair->key)){
+      |                          ^~~~~~~~~~
+      |                          lower_than
+treemap.c:69:48: error: request for member ‘pair’ in something not a structure or union
+   69 |         } else if (tree->lowet_than(key, parent->pair->key)){
+      |                                                ^~
+treemap.c:70:23: error: request for member ‘left’ in something not a structure or union
+   70 |                 parent->left = inserted_node;
+      |                       ^~
+treemap.c:72:23: error: request for member ‘right’ in something not a structure or union
+   72 |                 parent->right = inserted_node;
+      |                       ^~
+cc1: all warnings being treated as errors
+Compilation failed
+73ff59d
