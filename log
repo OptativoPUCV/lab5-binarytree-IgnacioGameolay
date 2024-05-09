@@ -174,3 +174,30 @@ treemap.c:66:31: error: assignment to ‘TreeNode *’ from incompatible pointer
 cc1: all warnings being treated as errors
 Compilation failed
 dc60866
+Thu 09 May 2024 01:32:55 AM UTC: 
+ treemap.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:49:13: error: implicit declaration of function ‘searhTreeMap’; did you mean ‘searchTreeMap’? [-Werror=implicit-function-declaration]
+   49 |         if (searhTreeMap(tree, key) != NULL) return; //si ya existe no se inserta
+      |             ^~~~~~~~~~~~
+      |             searchTreeMap
+treemap.c:49:37: error: comparison between pointer and integer [-Werror]
+   49 |         if (searhTreeMap(tree, key) != NULL) return; //si ya existe no se inserta
+      |                                     ^~
+treemap.c:52:13: error: ‘aux’ undeclared (first use in this function)
+   52 |         if (aux == NULL) return;
+      |             ^~~
+treemap.c:52:13: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c:59:25: error: ‘curret’ undeclared (first use in this function); did you mean ‘current’?
+   59 |                         curret = current->left;
+      |                         ^~~~~~
+      |                         current
+treemap.c:69:26: error: ‘TreeMap’ has no member named ‘lowet_than’; did you mean ‘lower_than’?
+   69 |         } else if (tree->lowet_than(key, parent->pair->key)){
+      |                          ^~~~~~~~~~
+      |                          lower_than
+cc1: all warnings being treated as errors
+Compilation failed
+b3bc82a
