@@ -187,7 +187,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 Pair * upperBound(TreeMap * tree, void* key) {
 /*
-	retorna el Pair con clave igual a ke.
+	retorna el Pair con clave igual a key.
 	En caso de no encontrarlo retorna el primer par asociado a una clave mayor o igual a key
 	Para implementarla puede realizar una búsqueda normal y usar un puntero a nodo auxiliar ub_node que vaya guardando el nodo con la menor clave mayor o igual a key. Finalmente retorne el par del nodo ub_node (aux).
 	
@@ -199,7 +199,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
 	TreeNode* aux = NULL;
 	
 	while(tree->current != NULL){
-		if (!(tree->lower_than(key, tree->current->pair->key))){
+		if ((tree->lower_than(key, tree->current->pair->key))){
 			aux = tree->current;
 			tree->current = tree->current->left;
 		} else {
