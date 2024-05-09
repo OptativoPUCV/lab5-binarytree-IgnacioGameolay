@@ -197,7 +197,7 @@ Pair * firstTreeMap(TreeMap * tree) {
 		aux = aux->left;
 	}
 
-	return aux->pair->key;
+	return aux->pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
