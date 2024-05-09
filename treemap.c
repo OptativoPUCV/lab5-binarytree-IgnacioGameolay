@@ -218,6 +218,7 @@ Pair * nextTreeMap(TreeMap * tree) {
 	if (tree == NULL || tree->root == NULL) return NULL;
 
   tree->current = tree->root;
+	//Si hay subarbol derecho
 	if (tree->current->right != NULL){
 		tree->current = tree->current->right;
 		
@@ -225,8 +226,15 @@ Pair * nextTreeMap(TreeMap * tree) {
 				tree->current = tree->current->left;
 		}
 		return tree->current->pair;
+	} else {
+		// si no hay subarbol derecho
+		TreeNode* aux = tree->current;
+		while(aux->parent != NULL && aux->parent->right == aux){
+			aux = aux->parent;
+		}
+		return aux->parent->pair;
 	}
 	
-	return tree->current->pair;
+	return NULL;
 	
 }
