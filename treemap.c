@@ -142,7 +142,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
 		if (aux->right != NULL){
 			aux->right->parent = aux->parent;
 		}
-		removeNode(tree, aux);
+		removeNode(tree, node);
 	}
 }
 
@@ -151,7 +151,7 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 	if (searchTreeMap(tree, key) == NULL) return;
 	TreeNode* node = tree->current;
-	removeNode(tree, aux);
+	removeNode(tree, node);
 
 }
 
