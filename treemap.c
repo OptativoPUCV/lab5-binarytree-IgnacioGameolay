@@ -217,10 +217,16 @@ Pair * firstTreeMap(TreeMap * tree) {
 Pair * nextTreeMap(TreeMap * tree) {
 	if (tree == NULL || tree->root == NULL) return NULL;
 
-  tree->current = tree->root->right;
-	while(tree->current->left != NULL){
-			tree->current = tree->current->left;
+  tree->current = tree->root;
+	if (tree->current->right != NULL){
+		tree->current = tree->current->right;
+		
+		while(tree->current->left != NULL){
+				tree->current = tree->current->left;
+		}
+		return tree->current->pair;
 	}
+	
 
-	return tree->current->pair;
+	
 }
