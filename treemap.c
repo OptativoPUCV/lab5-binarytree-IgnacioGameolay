@@ -49,7 +49,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
 	if (searhTreeMap(tree, key) != NULL) return; //si ya existe no se inserta
 
 	TreeNode* inserted_node = createTreeNode(key, value);
-	if (aux == NULL) return;
+	if (inserted_node == NULL) return;
 
 	TreeNode* parent = NULL;
 	TreeNode* current = tree->root;
